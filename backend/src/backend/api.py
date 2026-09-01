@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import pandas as pd
 
 from backend.data_processing import df
 
@@ -15,6 +16,21 @@ app = FastAPI(title="eClipseBord API")
 async def root():
     """Small welcome message so the root URL isn't empty."""
     return { "Welcome to the eClipseBord API"}
+
+
+@app.get("/eclipses")
+async def get_eclipses(limit: int = 100):
+    """Return the first `limit` eclipse records as a list of dictionaries."""
+
+    records = df.head(limit).to_dict(orient="records")
+
+    for record in records:
+        for key, value in record.items():
+            if pd.isna(value):
+                record[key] = None
+
+    return records
+
 
 @app.get("/eclipses/stats")
 async def get_stats():

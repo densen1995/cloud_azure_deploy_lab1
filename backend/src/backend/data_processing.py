@@ -33,6 +33,9 @@ def _parse_coordinate(value: str) -> float:
         number = -number
     return number
 
+
+  
+
 def load_data() -> pd.DataFrame:
     """Read the CSV and add helper columns used by the API/charts."""
     df = pd.read_csv(DATA_PATH / "solar.csv")
@@ -40,6 +43,7 @@ def load_data() -> pd.DataFrame:
     # Main eclipse category from the first letter of the type code.
     df["type_code"] = df["Eclipse Type"].str[0]
     df["type_name"] = df["type_code"].map(TYPE_NAMES).fillna("Other")
+
 
     # Parsed numeric helpers.
     df["year"] = df["Calendar Date"].apply(_parse_year)
