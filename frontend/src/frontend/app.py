@@ -1,6 +1,5 @@
-"""Entrypoint that runs the eClipseBord app."""
-
 import streamlit as st
+
 
 st.set_page_config(
     page_title="eClipseBord",
@@ -8,7 +7,6 @@ st.set_page_config(
     layout="wide",
 )
 
-# The pages that show up in the sidebar. Paths are relative to this file.
 pages = [
     st.Page("pages/home.py", title="Home", icon="🌘"),
     st.Page("pages/charts.py", title="Charts", icon="📊"),
