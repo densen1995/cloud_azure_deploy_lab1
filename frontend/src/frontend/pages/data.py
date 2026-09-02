@@ -1,8 +1,6 @@
 import streamlit as st
-
 from frontend.utils.helpers import get_dataframe
 
-"""Data page - browse the raw dataset coming from the backend."""
 
 def data():
     st.markdown("# 📄 Data")
@@ -12,7 +10,7 @@ def data():
 
     df = get_dataframe(f"/eclipses?limit={limit}")
     st.write(f"Showing {len(df)} rows")
-    st.dataframe(df, use_container_width=True)
+    st.dataframe(df, width="stretch")
 
 
 if __name__ == "__main__":

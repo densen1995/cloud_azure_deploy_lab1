@@ -7,7 +7,7 @@ from backend.data_processing import df
 """FastAPI backend for eClipseBord.
 
 Exposes some simple GET endpoints over the solar eclipse dataset.
-Start it and open /docs to try them out interactively.
+Starts it and open /docs to try them out interactively.
 """
 
 app = FastAPI(title="eClipseBord API")

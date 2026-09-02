@@ -9,6 +9,7 @@ from frontend.components.kpis import show_kpis
 
 def home():
     st.markdown("# 🌘 eClipseBord")
+    st.write(BACKEND_URL)
     st.image(IMAGE_PATH / "eclipse.png")
     st.markdown(read_textfile(MARKDOWN_PATH / "intro.md"))
     

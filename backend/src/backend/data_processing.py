@@ -1,5 +1,5 @@
 import pandas as pd 
-from backend.constants import DATA_PATH
+from backend.constants import DATA_DIRECTORY
 
 # The "Eclipse Type" column uses single-letter codes (sometimes with a suffix)
 
@@ -38,7 +38,7 @@ def _parse_coordinate(value: str) -> float:
 
 def load_data() -> pd.DataFrame:
     """Read the CSV and add helper columns used by the API/charts."""
-    df = pd.read_csv(DATA_PATH / "solar.csv")
+    df = pd.read_csv(DATA_DIRECTORY / "solar.csv")
 
     # Main eclipse category from the first letter of the type code.
     df["type_code"] = df["Eclipse Type"].str[0]
